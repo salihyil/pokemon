@@ -17,7 +17,6 @@ import {
 function* handleSearchPokemon({ payload: name }) {
   try {
     const pokemonDta = yield call(pokemonDataAsync, name);
-    console.log("pokemonDta: ", pokemonDta);
 
     yield put(pokemonDataSuccess(pokemonDta));
   } catch (error) {
@@ -29,7 +28,6 @@ function* handlePokemon() {
   try {
     const pokeAllData = yield call(pokemonAllDataAsync);
     const results = pokeAllData.results;
-
     const allData = yield call(pokemonAsync, results);
 
     yield put(pokemonAllDataRequestSuccess(allData));

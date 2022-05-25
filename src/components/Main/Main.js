@@ -33,15 +33,11 @@ const Main = () => {
           placeholder="Pokemon Ara..."
           onChange={handleSearch}
         />
-
-        {loading ? (
-          <p>Loading...</p>
-        ) : (
-          <div className="card-container">
-            <Card />
-          </div>
-        )}
-        {error ? <p>{error}</p> : ""}
+        <div>{loading && "Loading..."}</div>
+        <div>{error && error}</div>
+        <div className="card-container">
+          <Card />
+        </div>
       </div>
     </main>
   );

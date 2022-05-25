@@ -27,4 +27,18 @@ const pokemonAsync = async (results) => {
   return Promise.all(responseData);
 };
 
-export { pokemonDataAsync, pokemonAllDataAsync, pokemonAsync };
+const pokemonLimitAsync = async (pageNumber) => {
+  const limit = 50;
+  const pokeLimitData = await axiosInstance.get(
+    `${API_ROUTES.pokemon}?limit=${limit}&offset=${pageNumber * limit}`
+  );
+
+  return pokeLimitData;
+};
+
+export {
+  pokemonDataAsync,
+  pokemonAllDataAsync,
+  pokemonAsync,
+  pokemonLimitAsync,
+};

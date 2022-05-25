@@ -3,9 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { SLICE_NAME } from "./constants";
 
 const initialState = {
+  results: [],
   loading: false,
   error: false,
-  results: [],
+  pageNumber: 0,
 };
 
 export const pokemonSlice = createSlice({
@@ -18,6 +19,7 @@ export const pokemonSlice = createSlice({
     pokemonAllDataRequestSuccess: (state, action) => {
       state.loading = false;
       state.results = action.payload;
+      state.error = false;
     },
     pokemonAllDataRequestError: (state, action) => {
       state.loading = false;
@@ -48,7 +50,6 @@ export const {
   pokemonAllDataRequest,
   pokemonAllDataRequestSuccess,
   pokemonAllDataRequestError,
-  inputEmpty,
 } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;
