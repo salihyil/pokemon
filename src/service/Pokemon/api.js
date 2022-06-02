@@ -28,7 +28,7 @@ const pokemonAsync = async (results) => {
 };
 
 const pokemonLimitAsync = async (pageNumber) => {
-  const limit = 50;
+  const limit = 20;
   const pokeLimitData = await axiosInstance.get(
     `${API_ROUTES.pokemon}?limit=${limit}&offset=${pageNumber * limit}`
   );

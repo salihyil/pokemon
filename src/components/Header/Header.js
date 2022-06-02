@@ -1,20 +1,18 @@
 import React from "react";
 
 import "./styles.css";
-import {pokemonURL} from './constants'
+import { pokemonURL } from "./constants";
+import pokeball from "../../assets/result.svg";
 
 const Header = () => {
   return (
     <header>
       <div className="header-container">
-        <div>1</div>
+        <img src={pokeball} alt="PokemonBall" />
 
-        <img
-          src={pokemonURL}
-          alt="logo"
-        />
+        <img src={pokemonURL} alt="logo" />
 
-        <div>2</div>
+        <img src={pokeball} alt="PokemonBall" />
       </div>
     </header>
   );

@@ -4,7 +4,7 @@ import { SLICE_NAME } from "./constants";
 
 const initialState = {
   results: [],
-  loading: false,
+  loading: true,
   error: false,
   pageNumber: 0,
 };

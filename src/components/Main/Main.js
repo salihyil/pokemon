@@ -5,12 +5,12 @@ import {
   pokemonAllDataRequest,
 } from "../../store/pokemonData/slice";
 
-import Card from "../../components/Card";
+import CardList from "../../components/CardList";
 import "./styles.css";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { loading, error } = useSelector((state) => state.pokeData);
+  const { error, loading } = useSelector((state) => state.pokeData);
 
   useEffect(() => {
     dispatch(pokemonAllDataRequest());
@@ -33,11 +33,13 @@ const Main = () => {
           placeholder="Pokemon Ara..."
           onChange={handleSearch}
         />
-        <div>{loading && "Loading..."}</div>
-        <div>{error && error}</div>
-        <div className="card-container">
-          <Card />
-        </div>
+
+        {loading && <div>Loading...</div>}
+        {error && <div>{error}</div>}
+
+        <CardList />
+
+        {loading && <div>loading</div>}
       </div>
     </main>
   );
