@@ -46,11 +46,8 @@ function* handleNextPage({ payload: pageNumber }) {
     const data = yield call(pokemonLimitAsync, pageNumber);
     const results = data.results;
     const allData = yield call(pokemonAsync, results);
-    console.log("handleNextPage içindeki allData", allData);
 
     yield put(netxPageRequestSuccess(allData));
-
-    //yield put(netxPageRequestSuccess(data));
   } catch (error) {
     yield put(netxPageRequestError("Pokemon not found..."));
   }

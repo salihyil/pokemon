@@ -19,15 +19,10 @@ const CardList = () => {
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (scrollTop + clientHeight === scrollHeight) {
-        console.log("scrolled to bottom");
-
         dispatch(netxPageRequest(pageNumber));
       }
     }
   };
-
-  console.log("pageNumber", pageNumber);
-  console.log("nextPageLoading", nextPageLoading);
 
   return (
     <div className="card-container" onScroll={onScroll} ref={listInnerRef}>
