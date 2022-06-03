@@ -33,7 +33,7 @@ const pokemonLimitAsync = async (pageNumber) => {
     `${API_ROUTES.pokemon}?limit=${limit}&offset=${pageNumber * limit}`
   );
 
-  return pokeLimitData;
+  return pokeLimitData.data;
 };
 
 export {

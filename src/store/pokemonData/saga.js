@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
 import {
   pokemonDataRequest,
@@ -7,11 +7,16 @@ import {
   pokemonAllDataRequest,
   pokemonAllDataRequestSuccess,
   pokemonAllDataRequestError,
+  netxPageRequest,
+  netxPageRequestSuccess,
+  netxPageRequestError,
 } from "../../store/pokemonData/slice";
+
 import {
   pokemonDataAsync,
   pokemonAllDataAsync,
   pokemonAsync,
+  pokemonLimitAsync,
 } from "../../service/Pokemon/api";
 
 function* handleSearchPokemon({ payload: name }) {
@@ -36,7 +41,23 @@ function* handlePokemon() {
   }
 }
 
+function* handleNextPage({ payload: pageNumber }) {
+  try {
+    const data = yield call(pokemonLimitAsync, pageNumber);
+    const results = data.results;
+    const allData = yield call(pokemonAsync, results);
+    console.log("handleNextPage içindeki allData", allData);
+
+    yield put(netxPageRequestSuccess(allData));
+
+    //yield put(netxPageRequestSuccess(data));
+  } catch (error) {
+    yield put(netxPageRequestError("Pokemon not found..."));
+  }
+}
+
 export default function* pokemonDataWatcher() {
   yield takeLatest(pokemonDataRequest, handleSearchPokemon);
   yield takeLatest(pokemonAllDataRequest, handlePokemon);
+  yield takeEvery(netxPageRequest, handleNextPage);
 }

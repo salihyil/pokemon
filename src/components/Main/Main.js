@@ -10,7 +10,9 @@ import "./styles.css";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { error, loading } = useSelector((state) => state.pokeData);
+  const { error, loading, nextPageLoading } = useSelector(
+    (state) => state.pokeData
+  );
 
   useEffect(() => {
     dispatch(pokemonAllDataRequest());
@@ -38,8 +40,6 @@ const Main = () => {
         {error && <div>{error}</div>}
 
         <CardList />
-
-        {loading && <div>loading</div>}
       </div>
     </main>
   );

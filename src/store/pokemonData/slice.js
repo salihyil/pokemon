@@ -4,9 +4,10 @@ import { SLICE_NAME } from "./constants";
 
 const initialState = {
   results: [],
-  loading: true,
+  nextPageLoading: false,
+  loading: false,
   error: false,
-  pageNumber: 0,
+  pageNumber: 1,
 };
 
 export const pokemonSlice = createSlice({
@@ -38,6 +39,20 @@ export const pokemonSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
+
+    netxPageRequest(state) {
+      state.nextPageLoading = true;
+      state.pageNumber += 1;
+    },
+    netxPageRequestSuccess(state, action) {
+      state.nextPageLoading = false;
+
+      state.results = [...state.results, ...action.payload];
+    },
+    netxPageRequestError(state, action) {
+      state.nextPageLoading = false;
+      state.error = action.payload;
+    },
   },
 });
 
@@ -50,6 +65,10 @@ export const {
   pokemonAllDataRequest,
   pokemonAllDataRequestSuccess,
   pokemonAllDataRequestError,
+
+  netxPageRequest,
+  netxPageRequestSuccess,
+  netxPageRequestError,
 } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;

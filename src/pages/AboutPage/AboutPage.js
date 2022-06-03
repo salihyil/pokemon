@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 const AboutPage = () => {
-  const { name } = useParams();
+  const { pokeName } = useParams();
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -11,7 +11,7 @@ const AboutPage = () => {
 
   return (
     <div>
-      <div>{name}</div>
+      <div>{pokeName}</div>
       <button onClick={handleBack}>Back</button>
     </div>
   );

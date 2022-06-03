@@ -5,22 +5,29 @@ import "./styles.css";
 import "./color.css";
 import Pokeball from "../../assets/pokeball.png";
 import PokeballColor from "../../assets/pokeball-color.png";
+import { netxPageRequest } from "../../store/pokemonData/slice";
 
 const CardList = () => {
-  const { results } = useSelector((state) => state.pokeData);
+  const dispatch = useDispatch();
+  const { results, pageNumber, nextPageLoading } = useSelector(
+    (state) => state.pokeData
+  );
 
   const listInnerRef = useRef();
 
   const onScroll = () => {
-    //console.log("listInnerRef.current", listInnerRef.current);
-
     if (listInnerRef.current) {
       const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
       if (scrollTop + clientHeight === scrollHeight) {
-        console.log("reached bottom");
+        console.log("scrolled to bottom");
+
+        dispatch(netxPageRequest(pageNumber));
       }
     }
   };
+
+  console.log("pageNumber", pageNumber);
+  console.log("nextPageLoading", nextPageLoading);
 
   return (
     <div className="card-container" onScroll={onScroll} ref={listInnerRef}>
@@ -65,6 +72,7 @@ const CardList = () => {
           </div>
         );
       })}
+      {nextPageLoading && <div>Next Page Loading...</div>}
     </div>
   );
 };
