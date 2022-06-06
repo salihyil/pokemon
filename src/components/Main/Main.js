@@ -10,9 +10,7 @@ import "./styles.css";
 
 const Main = () => {
   const dispatch = useDispatch();
-  const { error, loading, nextPageLoading } = useSelector(
-    (state) => state.pokeData
-  );
+  const { error, loading } = useSelector((state) => state.pokeData);
 
   useEffect(() => {
     dispatch(pokemonAllDataRequest());

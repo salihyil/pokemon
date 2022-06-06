@@ -7,10 +7,10 @@ import "./styles.css";
 
 const HomePage = () => {
   return (
-    <>
+    <div >
       <Header />
       <Main />
-    </>
+    </div>
   );
 };
 
