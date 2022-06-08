@@ -92,8 +92,8 @@ a:focus {
 }
 
 .nextPageLoading {
-  position: absolute;
-  top: 95%;
+  position: fixed;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;

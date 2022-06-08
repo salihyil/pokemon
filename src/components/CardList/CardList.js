@@ -53,6 +53,7 @@ const CardList = () => {
             </div>
           );
         })}
+
         {nextPageLoading && (
           <div className="nextPageLoading">Next Page Loading...</div>
         )}
