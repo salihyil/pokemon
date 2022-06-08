@@ -6,14 +6,12 @@ import pokeball from "../../assets/result.svg";
 
 const Header = () => {
   return (
-    <header>
-      <div className="header-container">
-        <img src={pokeball} alt="PokemonBall" />
+    <header className="header-container">
+      <img src={pokeball} alt="PokemonBall" />
 
-        <img src={pokemonURL} alt="logo" />
+      <img src={pokemonURL} alt="logo" />
 
-        <img src={pokeball} alt="PokemonBall" />
-      </div>
+      <img src={pokeball} alt="PokemonBall" />
     </header>
   );
 };

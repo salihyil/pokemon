@@ -14,7 +14,7 @@ const AboutPage = () => {
   const { results } = useSelector((state) => state.pokeData);
 
   const handleBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   useEffect(() => {

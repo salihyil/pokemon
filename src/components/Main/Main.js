@@ -25,20 +25,18 @@ const Main = () => {
   };
 
   return (
-    <main>
-      <div className="main-container">
-        <input
-          className="search-input"
-          type="text"
-          placeholder="Pokemon Ara..."
-          onChange={handleSearch}
-        />
+    <main className="main-container">
+      <input
+        className="search-input"
+        type="text"
+        placeholder="Pokemon Ara..."
+        onChange={handleSearch}
+      />
 
-        {loading && <div>Loading...</div>}
-        {error && <div>{error}</div>}
+      {loading && <div>Loading...</div>}
+      {error && <div>{error}</div>}
 
-        <CardList />
-      </div>
+      <CardList />
     </main>
   );
 };
