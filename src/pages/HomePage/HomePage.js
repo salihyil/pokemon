@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import LoadingBar from "react-top-loading-bar";
 
 import Header from "../../components/Header";
 import Main from "../../components/Main";
@@ -9,9 +10,7 @@ import "./styles.css";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { pageNumber} = useSelector(
-    (state) => state.pokeData
-  );
+  const { pageNumber, count } = useSelector((state) => state.pokeData);
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
@@ -22,8 +21,6 @@ const HomePage = () => {
 
       const windowHeight = scrollHeight - clientHeight;
       const scroll = scrollTop / windowHeight;
-
-     
 
       if (scrollTop + clientHeight === scrollHeight) {
         dispatch(netxPageRequest(pageNumber));
@@ -49,6 +46,14 @@ const HomePage = () => {
           }}
         />
       </div>
+      <LoadingBar
+        color="black"
+        height="10px"
+        progress={count}
+        onLoaderFinished={0}
+        transitionTime={500}
+        loaderSpeed={800}
+      />
 
       <Header />
 

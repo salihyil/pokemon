@@ -1,4 +1,5 @@
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
+import { noMoreMsg, notFoundMsg } from "./constants";
 
 import {
   pokemonDataRequest,
@@ -52,10 +53,10 @@ function* handleNextPage({ payload: pageNumber }) {
     if (allData.length > 0) {
       yield put(netxPageRequestSuccess(allData));
     } else {
-      yield put(nextPageNoMore("There is no more data..."));
+      yield put(nextPageNoMore(noMoreMsg));
     }
   } catch (error) {
-    yield put(netxPageRequestError("Pokemon not found..."));
+    yield put(netxPageRequestError(notFoundMsg));
   }
 }
 

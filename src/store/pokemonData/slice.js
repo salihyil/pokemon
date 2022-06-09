@@ -11,8 +11,7 @@ const initialState = {
   scroll: 0,
   nextPageNoMoreMsg: false,
 
-/*   loadingCount: 0,
-  totalRequest: 0, */
+  count: 0,
 };
 
 export const pokemonSlice = createSlice({
@@ -64,12 +63,12 @@ export const pokemonSlice = createSlice({
       state.nextPageNoMoreMsg = action.payload;
     },
 
-   /*  START_LOADING(state) {
-      state.totalRequest += 1;
+    START_LOADING(state) {
+      state.count = 50;
     },
     FINISH_LOADING(state) {
-      state.loadingCount += 1;
-    }, */
+      state.count = 100;
+    },
   },
 });
 

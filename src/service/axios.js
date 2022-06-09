@@ -7,10 +7,8 @@ const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
 });
 
-/* axiosInstance.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
-    console.log("interceptors request çalıştı.");
-
     store.dispatch(START_LOADING());
     return config;
   },
@@ -21,15 +19,13 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    console.log("interceptors response çalıştı.");
-
     store.dispatch(FINISH_LOADING());
     return response;
   },
   (error) => {
     return Promise.reject(error);
   }
-); */
+);
 
 const axiosGet = (resultUrl) => {
   return axios.get(resultUrl);
