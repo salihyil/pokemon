@@ -7,7 +7,9 @@ import Pokeball from "../../assets/pokeball.png";
 import PokeballColor from "../../assets/pokeball-color.png";
 
 const CardList = () => {
-  const { results, nextPageLoading } = useSelector((state) => state.pokeData);
+  const { results, nextPageLoading, nextPageNoMoreMsg } = useSelector(
+    (state) => state.pokeData
+  );
 
   return (
     <>
@@ -53,11 +55,13 @@ const CardList = () => {
             </div>
           );
         })}
-
-        {nextPageLoading && (
-          <div className="nextPageLoading">Next Page Loading...</div>
-        )}
       </div>
+      {nextPageLoading && (
+        <div className="nextPageLoading">Next Page Loading...</div>
+      )}
+      {nextPageNoMoreMsg && (
+        <div className="nextPageNoMoreMsg">{nextPageNoMoreMsg}</div>
+      )}
     </>
   );
 };

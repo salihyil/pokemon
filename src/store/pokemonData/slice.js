@@ -8,6 +8,11 @@ const initialState = {
   loading: false,
   error: false,
   pageNumber: 1,
+  scroll: 0,
+  nextPageNoMoreMsg: false,
+
+/*   loadingCount: 0,
+  totalRequest: 0, */
 };
 
 export const pokemonSlice = createSlice({
@@ -43,6 +48,7 @@ export const pokemonSlice = createSlice({
     netxPageRequest(state) {
       state.nextPageLoading = true;
       state.pageNumber += 1;
+      state.scroll = 0;
     },
     netxPageRequestSuccess(state, action) {
       state.nextPageLoading = false;
@@ -53,6 +59,17 @@ export const pokemonSlice = createSlice({
       state.nextPageLoading = false;
       state.error = action.payload;
     },
+    nextPageNoMore(state, action) {
+      state.nextPageLoading = false;
+      state.nextPageNoMoreMsg = action.payload;
+    },
+
+   /*  START_LOADING(state) {
+      state.totalRequest += 1;
+    },
+    FINISH_LOADING(state) {
+      state.loadingCount += 1;
+    }, */
   },
 });
 
@@ -69,6 +86,10 @@ export const {
   netxPageRequest,
   netxPageRequestSuccess,
   netxPageRequestError,
+  nextPageNoMore,
+
+  START_LOADING,
+  FINISH_LOADING,
 } = pokemonSlice.actions;
 
 export default pokemonSlice.reducer;

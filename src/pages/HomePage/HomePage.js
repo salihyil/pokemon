@@ -9,7 +9,9 @@ import "./styles.css";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const { pageNumber } = useSelector((state) => state.pokeData);
+  const { pageNumber} = useSelector(
+    (state) => state.pokeData
+  );
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
@@ -20,6 +22,8 @@ const HomePage = () => {
 
       const windowHeight = scrollHeight - clientHeight;
       const scroll = scrollTop / windowHeight;
+
+     
 
       if (scrollTop + clientHeight === scrollHeight) {
         dispatch(netxPageRequest(pageNumber));
@@ -45,9 +49,11 @@ const HomePage = () => {
           }}
         />
       </div>
+
       <Header />
+
       <Main />
-      {/* <footer
+      {/*  <footer
         style={{
           width: "100%",
           height: "400px",

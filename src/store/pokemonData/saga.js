@@ -10,6 +10,7 @@ import {
   netxPageRequest,
   netxPageRequestSuccess,
   netxPageRequestError,
+  nextPageNoMore,
 } from "../../store/pokemonData/slice";
 
 import {
@@ -45,9 +46,14 @@ function* handleNextPage({ payload: pageNumber }) {
   try {
     const data = yield call(pokemonLimitAsync, pageNumber);
     const results = data.results;
+
     const allData = yield call(pokemonAsync, results);
 
-    yield put(netxPageRequestSuccess(allData));
+    if (allData.length > 0) {
+      yield put(netxPageRequestSuccess(allData));
+    } else {
+      yield put(nextPageNoMore("There is no more data..."));
+    }
   } catch (error) {
     yield put(netxPageRequestError("Pokemon not found..."));
   }
