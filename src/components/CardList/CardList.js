@@ -13,7 +13,7 @@ const CardList = () => {
 
   return (
     <>
-      <div className="card-container">
+      <section className="card-container">
         {results.map((result, i) => {
           const typeName = result.types[0].type.name;
 
@@ -55,7 +55,7 @@ const CardList = () => {
             </div>
           );
         })}
-      </div>
+      </section>
       {nextPageLoading && (
         <div className="nextPageLoading">Next Page Loading...</div>
       )}

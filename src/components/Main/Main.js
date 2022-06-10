@@ -26,12 +26,14 @@ const Main = () => {
 
   return (
     <main className="main-container">
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Pokemon Ara..."
-        onChange={handleSearch}
-      />
+      <section className="search-container">
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Pokemon Ara..."
+          onChange={handleSearch}
+        />
+      </section>
 
       {loading && <div>Loading...</div>}
       {error && <div>{error}</div>}

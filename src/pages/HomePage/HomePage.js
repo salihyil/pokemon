@@ -5,6 +5,13 @@ import LoadingBar from "react-top-loading-bar";
 import Header from "../../components/Header";
 import Main from "../../components/Main";
 import { netxPageRequest } from "../../store/pokemonData/slice";
+import {
+  loaderSpeed,
+  loadingBarColor,
+  loadingBarHeight,
+  onLoaderFinishedNumber,
+  transitionTime,
+} from "./constants";
 
 import "./styles.css";
 
@@ -47,12 +54,12 @@ const HomePage = () => {
         />
       </div>
       <LoadingBar
-        color="black"
-        height="10px"
+        color={loadingBarColor}
+        height={loadingBarHeight}
         progress={count}
-        onLoaderFinished={0}
-        transitionTime={500}
-        loaderSpeed={800}
+        onLoaderFinished={onLoaderFinishedNumber}
+        transitionTime={transitionTime}
+        loaderSpeed={loaderSpeed}
       />
 
       <Header />
