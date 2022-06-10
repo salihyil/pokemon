@@ -33,11 +33,9 @@ const Main = () => {
           placeholder="Pokemon Ara..."
           onChange={handleSearch}
         />
+        {loading && <div>Loading...</div>}
+        {error && <div>{error}</div>}
       </section>
-
-      {loading && <div>Loading...</div>}
-      {error && <div>{error}</div>}
-
       <CardList />
     </main>
   );
