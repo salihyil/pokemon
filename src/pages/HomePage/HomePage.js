@@ -32,7 +32,7 @@ const HomePage = () => {
     window.addEventListener("scroll", progressBarHandler);
 
     return () => window.removeEventListener("scroll", progressBarHandler);
-  });
+  }, [dispatch, pageNumber]);
 
   return (
     <div className="container">
@@ -56,8 +56,8 @@ const HomePage = () => {
       />
 
       <Header />
-
       <Main />
+
       {/*  <footer
         style={{
           width: "100%",
