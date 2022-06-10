@@ -1,17 +1,11 @@
 .main-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #d5f3f7;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: #f5f5f5;
+
+
+.search-container{
+  text-align: center;
 }
 
 .search-input {
