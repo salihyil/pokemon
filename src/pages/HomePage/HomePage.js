@@ -29,11 +29,6 @@ const HomePage = () => {
       const windowHeight = scrollHeight - clientHeight;
       const scroll = scrollTop / windowHeight;
 
-      console.log(" scrollTop ", scrollTop);
-      console.log("clientHeight", clientHeight);
-      console.log("scrollTop + clientHeight", scrollTop + clientHeight);
-      console.log("scrollHeight", scrollHeight);
-
       if (Math.round(scrollTop) + clientHeight === scrollHeight) {
         dispatch(netxPageRequest(pageNumber));
       }
