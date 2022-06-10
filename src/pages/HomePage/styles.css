@@ -3,8 +3,24 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-size: clamp(1rem, 2vw, 1.125rem);
+  background-color: f5f5f5;
 }
 
 .container {
   height: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  body {
+    background-color: lavender;
+  }
+  .card-container {
+    width: 100%;
+  }
 }
