@@ -34,8 +34,9 @@ const Layout = () => {
 
     return () => window.removeEventListener("scroll", progressBarHandler);
   }, [dispatch, pageNumber]);
+
   return (
-    <div div className="container">
+    <div className="container">
       <LoadingBar
         color={loadingBarColor}
         height={loadingBarHeight}
