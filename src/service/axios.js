@@ -23,6 +23,7 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
+    store.dispatch(FINISH_LOADING());
     return Promise.reject(error);
   }
 );
