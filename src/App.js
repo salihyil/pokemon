@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import AboutPage from "./pages/AboutPage/AboutPage";
 import HomePage from "./pages/HomePage";
-import SharedLayout from "./components/Layout/";
+import SharedLayout from "./components/Layout";
 
 const App = () => {
   return (
