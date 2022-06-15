@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
-import Header from "../../components/Header";
+import Header from "../Header";
 
 import { netxPageRequest } from "../../store/pokemonData/slice";
 import {
@@ -13,9 +13,9 @@ import {
   onLoaderFinishedNumber,
   transitionTime,
 } from "./constants";
-import "./style.css";
+import "./styles.css";
 
-const Layout = () => {
+const SharedLayout = () => {
   const dispatch = useDispatch();
   const { pageNumber, count } = useSelector((state) => state.pokeData);
 
@@ -36,7 +36,7 @@ const Layout = () => {
   }, [dispatch, pageNumber]);
 
   return (
-    <div className="container">
+    <>
       <LoadingBar
         color={loadingBarColor}
         height={loadingBarHeight}
@@ -45,11 +45,14 @@ const Layout = () => {
         transitionTime={transitionTime}
         loaderSpeed={loaderSpeed}
       />
-      <Header />
 
-      <Outlet />
-    </div>
+      <div className="wrapper">
+        <Header />
+
+        <Outlet />
+      </div>
+    </>
   );
 };
 
-export default Layout;
+export default SharedLayout;
