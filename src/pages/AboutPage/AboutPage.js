@@ -45,6 +45,9 @@ const AboutPage = () => {
                   <div className="mb-1">
                     <ArrowLeft className="arrow-left" onClick={handleBack} />
                   </div>
+                  <div className="mb-1">
+                    <h3>#0{result.id}</h3>
+                  </div>
                   <h2 className="mb-1">{result.name}</h2>
                   <div className="mb-1 ">
                     <motion.div animate={{ y: 100 }} />
