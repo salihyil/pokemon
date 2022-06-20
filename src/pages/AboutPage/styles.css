@@ -42,15 +42,6 @@
 
 .about-header-left {
   margin-top: 2rem;
-  animation: MoveUpDown 1s linear infinite;
-}
-@keyframes MoveUpDown {
-  0% {
-    bottom: 0;
-  }
-  100% {
-    bottom: 100px;
-  }
 }
 
 .about-header-right {
