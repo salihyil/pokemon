@@ -1,3 +1,9 @@
-.wrapper {
-  background-color: #ddd;
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+}
+
+.wrapper-content {
+  margin: 10px 45px;
 }

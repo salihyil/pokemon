@@ -2,9 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import "./styles.css";
-import "./color.css";
+import "../../assets/colors.css";
 import Pokeball from "../../assets/pokeball.png";
-import PokeballColor from "../../assets/pokeball-color.png";
+import Bgpokecoll from "../../assets/bgpokecoll.png";
+import { Link } from "react-router-dom";
 
 const CardList = () => {
   const { results, nextPageLoading, nextPageNoMoreMsg } = useSelector(
@@ -19,7 +20,7 @@ const CardList = () => {
 
           return (
             <div className={`card-item ${typeName}`} key={i}>
-              <a href={result.name}>
+              <Link to={result.name}>
                 <div className={`card-top ${typeName}`}>
                   <img
                     className="card-image"
@@ -30,7 +31,7 @@ const CardList = () => {
                   <img className="pokeball" src={Pokeball} alt="pokeball" />
                   <img
                     className="pokeball-color"
-                    src={PokeballColor}
+                    src={Bgpokecoll}
                     alt="PokeballColor"
                     width="150"
                     height="150"
@@ -51,7 +52,7 @@ const CardList = () => {
                     </div>
                   </div>
                 </div>
-              </a>
+              </Link>
             </div>
           );
         })}

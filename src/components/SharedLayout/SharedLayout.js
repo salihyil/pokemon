@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 
 import Header from "../Header";
 
-import { netxPageRequest } from "../../store/pokemonData/slice";
 import {
   loaderSpeed,
   loadingBarColor,
@@ -16,24 +15,7 @@ import {
 import "./styles.css";
 
 const SharedLayout = () => {
-  const dispatch = useDispatch();
-  const { pageNumber, count } = useSelector((state) => state.pokeData);
-
-  useEffect(() => {
-    let progressBarHandler = () => {
-      const scrollTop = document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-
-      if (Math.round(scrollTop) + clientHeight === scrollHeight) {
-        dispatch(netxPageRequest(pageNumber));
-      }
-    };
-
-    window.addEventListener("scroll", progressBarHandler);
-
-    return () => window.removeEventListener("scroll", progressBarHandler);
-  }, [dispatch, pageNumber]);
+  const { count } = useSelector((state) => state.pokeData);
 
   return (
     <>
@@ -46,10 +28,12 @@ const SharedLayout = () => {
         loaderSpeed={loaderSpeed}
       />
 
-      <div className="wrapper">
+      <div className="container">
         <Header />
 
-        <Outlet />
+        <div className="wrapper-content">
+          <Outlet />
+        </div>
       </div>
     </>
   );

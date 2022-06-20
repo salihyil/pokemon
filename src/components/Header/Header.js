@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="header-container">
       <img src={pokeball} alt="PokemonBall" />
-      <img src={pokemonURL} alt="logo" />
+      <img height="80px" src={pokemonURL} alt="logo" />
       <img src={pokeball} alt="PokemonBall" />
     </header>
   );

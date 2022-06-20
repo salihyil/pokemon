@@ -5,7 +5,7 @@
   background-color: rgb(247, 247, 247);
 }
 .electric {
-  background-color: rgb(255, 255, 161);
+  background-color: #ffe102;
 }
 .bug {
   background-color: #f6d6a7;
@@ -14,7 +14,7 @@
   background-color: #e0a7f6;
 }
 .normal {
-  background-color: #f4f4f4;
+  background-color: #efe68e;
 }
 .fairy {
   background-color: rgba(255, 192, 203, 0.863);
@@ -23,10 +23,10 @@
   background-color: #fbe3df;
 }
 .grass {
-  background-color: #e2f9e1;
+  background-color: rgb(39, 203, 79);
 }
 .water {
-  background-color: #e0f1fd;
+  background-color: #6790f0;
 }
 .fighting {
   background-color: #f0d8d8;
