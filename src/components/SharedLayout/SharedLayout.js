@@ -34,19 +34,17 @@ const SharedLayout = () => {
         loaderSpeed={loaderSpeed}
       />
 
-      <div className="container">
-        <Header />
+      <Header />
 
-        <div className="wrapper-content">
-          <motion.div
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            variants={pageMotion}
-          >
-            <Outlet />
-          </motion.div>
-        </div>
+      <div className="wrapper-content">
+        <motion.div
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={pageMotion}
+        >
+          <Outlet />
+        </motion.div>
       </div>
     </motion.div>
   );
