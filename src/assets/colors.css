@@ -2,7 +2,7 @@
   background-color: rgb(148, 81, 81);
 }
 .ghost {
-  background-color: rgb(247, 247, 247);
+  background-color: #664397;
 }
 .electric {
   background-color: #ffe102;
@@ -20,7 +20,7 @@
   background-color: rgba(255, 192, 203, 0.863);
 }
 .fire {
-  background-color: #fbe3df;
+  background-color: #f71a1a;
 }
 .grass {
   background-color: rgb(39, 203, 79);
