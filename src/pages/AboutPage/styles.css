@@ -100,12 +100,13 @@
 
   border-radius: 20px;
   margin-top: 15px;
-  padding: 1.5rem 3rem;
+  padding: 1.2rem 2rem;
   height: calc(100vh - 17rem);
 }
 
 .ball-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
   justify-content: center;
   padding-top: 30px;
 }
@@ -129,4 +130,10 @@
   font-family: "Judson", serif;
   font-weight: 700;
   font-style: italic;
+}
+
+@media (max-width: 550px) {
+  .ball-container {
+    grid-template-columns: repeat(4, 90px);
+  }
 }
