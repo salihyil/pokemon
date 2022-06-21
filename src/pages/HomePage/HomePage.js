@@ -23,7 +23,7 @@ const HomePage = () => {
       const scrollHeight = document.documentElement.scrollHeight;
       const clientHeight = document.documentElement.clientHeight;
 
-      if (Math.round(scrollTop) + clientHeight === scrollHeight) {
+      if (Math.round(scrollTop) + clientHeight >= scrollHeight) {
         dispatch(netxPageRequest(pageNumber));
       }
     };
