@@ -3,23 +3,27 @@
 .card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+
   justify-items: center;
+  gap: 1rem;
 }
 
-@media (max-width: 1330px) {
+@media (max-width: 1360px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1075px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 685px) {
+@media (max-width: 725px) {
+  .wrapper-content {
+    margin: 0 !important;
+  }
   .card-container {
     grid-template-columns: repeat(1, 1fr);
   }
