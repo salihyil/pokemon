@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import store from "../store/store";
-import { START_LOADING, FINISH_LOADING } from "../store/pokemonData/slice";
+import { pokeActions } from "../store/pokemonData/slice";
 
 const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    store.dispatch(START_LOADING());
+    store.dispatch(pokeActions.START_LOADING());
     return config;
   },
   (error) => {
@@ -19,11 +19,11 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   (response) => {
-    store.dispatch(FINISH_LOADING());
+    store.dispatch(pokeActions.FINISH_LOADING());
     return response;
   },
   (error) => {
-    store.dispatch(FINISH_LOADING());
+    store.dispatch(pokeActions.FINISH_LOADING());
     return Promise.reject(error);
   }
 );

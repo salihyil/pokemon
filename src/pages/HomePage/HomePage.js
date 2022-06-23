@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  pokemonDataRequest,
-  pokemonAllDataRequest,
-  netxPageRequest,
-} from "../../store/pokemonData/slice";
+import { pokeActions } from "../../store/pokemonData/slice";
 
 import CardList from "../../components/CardList";
 import "./styles.css";
@@ -14,7 +10,7 @@ const HomePage = () => {
   const { error, loading, pageNumber } = useSelector((state) => state.pokeData);
 
   useEffect(() => {
-    dispatch(pokemonAllDataRequest());
+    dispatch(pokeActions.pokemonAllDataRequest());
   }, [dispatch]);
 
   useEffect(() => {
@@ -24,7 +20,7 @@ const HomePage = () => {
       const clientHeight = document.documentElement.clientHeight;
 
       if (Math.round(scrollTop) + clientHeight >= scrollHeight) {
-        dispatch(netxPageRequest(pageNumber));
+        dispatch(pokeActions.netxPageRequest(pageNumber));
       }
     };
 
@@ -35,9 +31,9 @@ const HomePage = () => {
 
   const handleSearch = (e) => {
     if (e.target.value.length > 0) {
-      dispatch(pokemonDataRequest(e.target.value));
+      dispatch(pokeActions.pokemonDataRequest(e.target.value));
     } else {
-      dispatch(pokemonAllDataRequest());
+      dispatch(pokeActions.pokemonAllDataRequest());
     }
   };
 

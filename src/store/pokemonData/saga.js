@@ -1,18 +1,7 @@
 import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 import { noMoreMsg, notFoundMsg } from "./constants";
 
-import {
-  pokemonDataRequest,
-  pokemonDataSuccess,
-  pokemonDataError,
-  pokemonAllDataRequest,
-  pokemonAllDataRequestSuccess,
-  pokemonAllDataRequestError,
-  netxPageRequest,
-  netxPageRequestSuccess,
-  netxPageRequestError,
-  nextPageNoMore,
-} from "../../store/pokemonData/slice";
+import { pokeActions } from "../../store/pokemonData/slice";
 
 import {
   pokemonDataAsync,
@@ -25,9 +14,9 @@ function* handleSearchPokemon({ payload: name }) {
   try {
     const pokemonDta = yield call(pokemonDataAsync, name);
 
-    yield put(pokemonDataSuccess(pokemonDta));
+    yield put(pokeActions.pokemonDataSuccess(pokemonDta));
   } catch (error) {
-    yield put(pokemonDataError("Pokemon not found..."));
+    yield put(pokeActions.pokemonDataError("Pokemon not found..."));
   }
 }
 
@@ -37,9 +26,9 @@ function* handlePokemon() {
     const results = pokeAllData.results;
     const allData = yield call(pokemonAsync, results);
 
-    yield put(pokemonAllDataRequestSuccess(allData));
+    yield put(pokeActions.pokemonAllDataRequestSuccess(allData));
   } catch (error) {
-    yield put(pokemonAllDataRequestError("Pokemon not found..."));
+    yield put(pokeActions.pokemonAllDataRequestError("Pokemon not found..."));
   }
 }
 
@@ -51,17 +40,17 @@ function* handleNextPage({ payload: pageNumber }) {
     const allData = yield call(pokemonAsync, results);
 
     if (allData.length > 0) {
-      yield put(netxPageRequestSuccess(allData));
+      yield put(pokeActions.netxPageRequestSuccess(allData));
     } else {
-      yield put(nextPageNoMore(noMoreMsg));
+      yield put(pokeActions.nextPageNoMore(noMoreMsg));
     }
   } catch (error) {
-    yield put(netxPageRequestError(notFoundMsg));
+    yield put(pokeActions.netxPageRequestError(notFoundMsg));
   }
 }
 
 export default function* pokemonDataWatcher() {
-  yield takeLatest(pokemonDataRequest, handleSearchPokemon);
-  yield takeLatest(pokemonAllDataRequest, handlePokemon);
-  yield takeEvery(netxPageRequest, handleNextPage);
+  yield takeLatest(pokeActions.pokemonDataRequest, handleSearchPokemon);
+  yield takeLatest(pokeActions.pokemonAllDataRequest, handlePokemon);
+  yield takeEvery(pokeActions.netxPageRequest, handleNextPage);
 }

@@ -72,23 +72,11 @@ export const pokemonSlice = createSlice({
   },
 });
 
+ 
+
 // Action creators are generated for each case reducer function
-export const {
-  pokemonDataRequest,
-  pokemonDataSuccess,
-  pokemonDataError,
+export const pokeActions = pokemonSlice.actions;
 
-  pokemonAllDataRequest,
-  pokemonAllDataRequestSuccess,
-  pokemonAllDataRequestError,
-
-  netxPageRequest,
-  netxPageRequestSuccess,
-  netxPageRequestError,
-  nextPageNoMore,
-
-  START_LOADING,
-  FINISH_LOADING,
-} = pokemonSlice.actions;
+export { initialState };
 
 export default pokemonSlice.reducer;
