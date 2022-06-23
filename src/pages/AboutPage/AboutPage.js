@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import pokeActions from "../../store/pokemonData/slice";
+import { pokeActions } from "../../store/pokemonData/slice";
 import "././styles.css";
 import "../../assets/colors.css";
 
