@@ -24,7 +24,12 @@ const SharedLayout = () => {
   };
 
   return (
-    <motion.div>
+    <motion.div
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      variants={pageMotion}
+    >
       <LoadingBar
         color={loadingBarColor}
         height={loadingBarHeight}
@@ -37,14 +42,7 @@ const SharedLayout = () => {
       <Header />
 
       <div className="wrapper-content">
-        <motion.div
-          initial="initial"
-          animate="animate"
-          exit="exit"
-          variants={pageMotion}
-        >
-          <Outlet />
-        </motion.div>
+        <Outlet />
       </div>
     </motion.div>
   );

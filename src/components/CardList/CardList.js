@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import "./styles.css";
 import "../../assets/colors.css";
 import Pokeball from "../../assets/pokeball.png";
 import Bgpokecoll from "../../assets/bgpokecoll.png";
-import { Link } from "react-router-dom";
 
 const CardList = () => {
   const { results, nextPageLoading, nextPageNoMoreMsg } = useSelector(
@@ -19,7 +20,16 @@ const CardList = () => {
           const typeName = result.types[0].type.name;
 
           return (
-            <div className={`card-item ${typeName}`} key={i}>
+            <motion.div
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 0px 8px rgb(255,255,255)",
+                boxShadow: "0px 0px 8px rgb(255,255,255)",
+                rotate: 360,
+              }}
+              className={`card-item ${typeName}`}
+              key={i}
+            >
               <Link to={result.name}>
                 <div className={`card-top ${typeName}`}>
                   <img
@@ -53,7 +63,7 @@ const CardList = () => {
                   </div>
                 </div>
               </Link>
-            </div>
+            </motion.div>
           );
         })}
       </section>
