@@ -121,10 +121,10 @@ const AboutPage = () => {
                     <h4 className="h4-position">Chart</h4>
                   </div>
                 </div>
-                {show.div1About ? <PokemonAbout result={result} /> : ""}
-                {show.div2Stats ? <div>Stats</div> : ""}
-                {show.div3Evol ? <div>Evol</div> : ""}
-                {show.div4Chart ? <div>Chart</div> : ""}
+                {show.div1About && <PokemonAbout result={result} />}
+                {show.div2Stats && <div>Stats</div>}
+                {show.div3Evol && <div>Evol</div>}
+                {show.div4Chart && <div>Chart</div>}
               </main>
             </div>
           );
