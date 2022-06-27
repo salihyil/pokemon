@@ -65,7 +65,7 @@
   padding: 0.5rem 0.5rem;
 }
 
-.bg-img {
+.about-header-mid > .bg-img {
   position: absolute;
   left: calc(50% - 170px);
   clip: rect(0px, 335px, 180px, 0px);
@@ -100,12 +100,16 @@
   padding-top: 30px;
 }
 
-.bg-image {
+.ball-container > .bg-image {
   background-size: cover;
   background-image: url("../../assets/bgpokecoll.png");
 }
-.bg-image:hover {
+.ball-container > .bg-image:hover {
   cursor: pointer;
+}
+.ball-container > .bg-image-clicked {
+  background-size: cover;
+  background-image: url("../../assets/bgpokecallblack.png");
 }
 
 .h4-position {

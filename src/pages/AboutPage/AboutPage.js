@@ -20,7 +20,7 @@ const AboutPage = () => {
   const { results } = useSelector((state) => state.pokeData);
 
   const [show, setShow] = useState({
-    div1About: false,
+    div1About: true,
     div2Stats: false,
     div3Evol: false,
     div4Chart: false,
@@ -90,25 +90,33 @@ const AboutPage = () => {
                 <div className="ball-container">
                   <div
                     onClick={() => setShow({ div1About: true })}
-                    className="h-4 w-4 mr-3 bg-image"
+                    className={`h-4 w-4 mr-3 bg-image ${
+                      show.div1About && "bg-image-clicked"
+                    }`}
                   >
                     <h4 className="h4-position">About</h4>
                   </div>
                   <div
                     onClick={() => setShow({ div2Stats: true })}
-                    className="h-4 w-4 mr-3 bg-image"
+                    className={`h-4 w-4 mr-3 bg-image ${
+                      show.div2Stats && "bg-image-clicked"
+                    }`}
                   >
                     <h4 className="h4-position">Stats</h4>
                   </div>
                   <div
                     onClick={() => setShow({ div3Evol: true })}
-                    className="h-4 w-4 mr-3 bg-image"
+                    className={`h-4 w-4 mr-3 bg-image ${
+                      show.div3Evol && "bg-image-clicked"
+                    }`}
                   >
                     <h4 className="h4-position">Evol</h4>
                   </div>
                   <div
                     onClick={() => setShow({ div4Chart: true })}
-                    className="h-4 w-4 mr-3 bg-image"
+                    className={`h-4 w-4 mr-3 bg-image ${
+                      show.div1About && "bg-image-clicked"
+                    }`}
                   >
                     <h4 className="h4-position">Chart</h4>
                   </div>
