@@ -22,7 +22,6 @@
 
 .about-container {
   font-family: "Roboto", sans-serif;
-  height: 100vh;
 
   position: relative;
 }
@@ -92,7 +91,6 @@
   border-radius: 20px;
   margin-top: 15px;
   padding: 1.2rem 2rem;
-  height: calc(100vh - 17rem);
 }
 
 .ball-container {

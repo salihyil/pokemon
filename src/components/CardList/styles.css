@@ -6,6 +6,8 @@
 
   justify-items: center;
   gap: 1rem;
+
+  background-color: rebeccapurple;
 }
 
 @media (max-width: 1360px) {
