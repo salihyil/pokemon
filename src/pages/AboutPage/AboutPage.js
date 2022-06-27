@@ -115,7 +115,7 @@ const AboutPage = () => {
                   <div
                     onClick={() => setShow({ div4Chart: true })}
                     className={`h-4 w-4 mr-3 bg-image ${
-                      show.div1About && "bg-image-clicked"
+                      show.div4Chart && "bg-image-clicked"
                     }`}
                   >
                     <h4 className="h4-position">Chart</h4>
