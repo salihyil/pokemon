@@ -11,17 +11,14 @@ import { ReactComponent as ArrowLeft } from "../../assets/arrow-left.svg";
 import Pokeball from "../../assets/pokeball.png";
 
 import PokemonAbout from "../../components/PokemonAbout";
+import { imgMotion } from "./motions";
 
 const AboutPage = () => {
   const { pokeName } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { results } = useSelector((state) => state.pokeData);
-  const imgMotion = {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0, transition: { duration: 1 } },
-    exit: { opacity: 0, x: 100, transition: { duration: 1 } },
-  };
+
   const [show, setShow] = useState({
     div1About: false,
     div2Stats: false,
