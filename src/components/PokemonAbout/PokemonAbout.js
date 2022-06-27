@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const PokemonAbout = ({ result }) => {
   return (
     <div className="div1-about-container">
-      <motion.div animate={{ y: 30, x: 20 }} transition={{ duration: 1 }}>
+      <motion.div animate={{ x: 20 }} transition={{ duration: 1 }}>
         <h3>
           Species:
           <span className="font-span">{" " + result.species.name}</span>
