@@ -17,6 +17,11 @@ const AboutPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { results } = useSelector((state) => state.pokeData);
+  const imgMotion = {
+    initial: { opacity: 0, x: 100 },
+    animate: { opacity: 1, x: 0, transition: { duration: 1 } },
+    exit: { opacity: 0, x: 100, transition: { duration: 1 } },
+  };
   const [show, setShow] = useState({
     div1About: false,
     div2Stats: false,
@@ -72,7 +77,11 @@ const AboutPage = () => {
                     src={Pokeball}
                     alt="pokeball"
                   />
-                  <img
+                  <motion.img
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    variants={imgMotion}
                     className="about-poke-image poke-position"
                     src={result.sprites.other.dream_world.front_default}
                     alt={`${result.name}-img`}
