@@ -5,6 +5,7 @@ import LoadingBar from "react-top-loading-bar";
 import { motion } from "framer-motion";
 
 import Header from "../Header";
+import { pageMotion } from "./motions";
 
 import {
   loaderSpeed,
@@ -17,11 +18,6 @@ import "./styles.css";
 
 const SharedLayout = () => {
   const { count } = useSelector((state) => state.pokeData);
-  const pageMotion = {
-    initial: { opacity: 0, x: 100 },
-    animate: { opacity: 1, x: 0, transition: { duration: 1 } },
-    exit: { opacity: 0, x: 100, transition: { duration: 1 } },
-  };
 
   return (
     <motion.div
@@ -41,9 +37,7 @@ const SharedLayout = () => {
 
       <Header />
 
-      <div className="wrapper-content">
-        <Outlet />
-      </div>
+      <Outlet />
     </motion.div>
   );
 };
