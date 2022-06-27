@@ -12,10 +12,15 @@ const CardList = () => {
   const { results, nextPageLoading, nextPageNoMoreMsg } = useSelector(
     (state) => state.pokeData
   );
+ 
 
   return (
     <>
-      <section className="card-container">
+      <section
+        className={`${
+          results.length === 1 ? "card-container-single" : "card-container"
+        } `}
+      >
         {results.map((result, i) => {
           const typeName = result.types[0].type.name;
 
