@@ -16,7 +16,7 @@ function* handleSearchPokemon({ payload: name }) {
 
     yield put(pokeActions.pokemonDataSuccess(pokemonDta));
   } catch (error) {
-    yield put(pokeActions.pokemonDataError("Pokemon not found..."));
+    yield put(pokeActions.pokemonDataError(notFoundMsg));
   }
 }
 
@@ -28,7 +28,7 @@ function* handlePokemon() {
 
     yield put(pokeActions.pokemonAllDataRequestSuccess(allData));
   } catch (error) {
-    yield put(pokeActions.pokemonAllDataRequestError("Pokemon not found..."));
+    yield put(pokeActions.pokemonAllDataRequestError(notFoundMsg));
   }
 }
 
@@ -38,6 +38,8 @@ function* handleNextPage({ payload: pageNumber }) {
     const results = data.results;
 
     const allData = yield call(pokemonAsync, results);
+
+    console.log("allData.length", allData.length);
 
     if (allData.length > 0) {
       yield put(pokeActions.netxPageRequestSuccess(allData));
