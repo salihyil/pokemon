@@ -39,8 +39,6 @@ function* handleNextPage({ payload: pageNumber }) {
 
     const allData = yield call(pokemonAsync, results);
 
-    console.log("allData.length", allData.length);
-
     if (allData.length > 0) {
       yield put(pokeActions.netxPageRequestSuccess(allData));
     } else {
